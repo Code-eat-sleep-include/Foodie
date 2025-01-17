@@ -20,7 +20,7 @@ const SignUpIn = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const endpoint = isSignUp ? "/signup" : "/signin";
+    const endpoint = isSignUp ? "/auth/signup" : "/auth/signin";
 
     try {
       const response = await axios.post(
@@ -40,8 +40,14 @@ const SignUpIn = () => {
     }
   };
 
-  const googleLogin = () => {
-    window.location.href = "http://localhost:5000/auth/google";
+  const googleLogin = async () => {
+    try {
+      const response = await axios.post('http://localhost:5000/oauth');
+      window.location.href = response.data.url;
+    } catch (error) {
+      console.error('Error initiating Google login:', error);
+      alert('Failed to initiate Google login. Please try again later.');
+    }
   };
 
   return (

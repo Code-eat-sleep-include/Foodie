@@ -9,7 +9,7 @@ const NavBar = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
 
-    useEffect(() => {
+    /*useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
             try {
@@ -24,7 +24,7 @@ const NavBar = () => {
         } else {
             setIsLoggedIn(false);
         }
-    }, []);    
+    }, []);
 
     const handleProfileClick = () => {
         if (isLoggedIn) {
@@ -32,7 +32,7 @@ const NavBar = () => {
         } else {
             navigate('/signup');
         }
-    };
+    };*/
 
     return (
         <div className="navbar">

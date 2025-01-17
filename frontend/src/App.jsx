@@ -9,22 +9,8 @@ import AboutUs from './components/About Us/AboutUs'
 import SignUpIn from './components/Sign up/SignUpIn'
 import Profile from './components/Profile/Profile'
 import RestaurantList from './components/Restaurants & reviews/RestaurantList'
-import { useEffect } from 'react'
 
 const App = () => {
-  useEffect(() => {
-    try {
-      const token = new URLSearchParams(window.location.search).get('token');
-      if (token) {
-        console.log("Token found:", token);
-        localStorage.setItem('token', token);
-      } else {
-        console.log("No token found in URL");
-      }
-    } catch (error) {
-      console.error("Error handling token:", error);
-    }
-  }, []);
 
   return (
     <Router>
